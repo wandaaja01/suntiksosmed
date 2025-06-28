@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suntik Sosmed - WanzOffc</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e7f1ff, #ffffff);
+      color: #333;
+    }
+    header {
+      background-color: #00dfd8;
+      color: black;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .desc {
+      font-size: 16px;
+      margin-bottom: 30px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .section-title {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #00bfbf;
+      border-bottom: 2px solid #00dfd8;
+      padding-bottom: 5px;
+    }
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin: 10px 0;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .card span {
+      display: block;
+      font-weight: bold;
+      color: #00bfbf;
+    }
+    footer {
+      background: #00dfd8;
+      color: black;
+      text-align: center;
+      padding: 18px;
+      margin-top: 40px;
+      font-weight: 500;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .popup-content {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      width: 320px;
+      text-align: center;
+      animation: zoom 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    @keyframes zoom {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .popup-content h3 {
+      color: #00bfbf;
+      margin-bottom: 10px;
+    }
+    .popup-content button {
+      margin: 10px 5px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .popup-content .cancel {
+      background: #ccc;
+    }
+    .popup-content .go {
+      background: #00bfbf;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Layanan Suntik Sosmed</h1>
+  <p>Followers • Views • Likes • FYP • Paket Murid WanzBot</p>
+</header>
+
+<div class="container">
+  <p class="desc">
+    Kami menyediakan layanan suntik sosial media (Instagram & TikTok) <br>
+    - Followers Permanen<br>
+    - Views & Like (Real Human)<br>
+    - FYP Paket TikTok<br>
+    - OPEN MURID SUNTIK SOSMED!<br><br>
+    Semua layanan legal, permanen, dan aman. Pembayaran bebas.
+  </p>
+
+  <div class="section-title">📌 Followers Instagram Permanen</div>
+  <div class="card" onclick="showPopup('Followers IG 100', 'Rp4.000')"><span>100 Followers</span>Rp4.000</div>
+  <div class="card" onclick="showPopup('Followers IG 1.000', 'Rp20.000')"><span>1.000 Followers</span>Rp20.000</div>
+  <div class="card" onclick="showPopup('Followers IG 2.000', 'Rp35.000')"><span>2.000 Followers</span>Rp35.000</div>
+
+  <div class="section-title">🎥 Followers TikTok Permanen</div>
+  <div class="card" onclick="showPopup('Followers TikTok 100', 'Rp4.000')"><span>100 Followers</span>Rp4.000</div>
+  <div class="card" onclick="showPopup('Followers TikTok 2.000', 'Rp35.000')"><span>2.000 Followers</span>Rp35.000</div>
+
+  <div class="section-title">🔥 Paket FYP TikTok</div>
+  <div class="card" onclick="showPopup('Paket FYP 100 Like + 3K View', 'Rp2.000')"><span>100 Like + 3.000 View</span>Rp2.000</div>
+  <div class="card" onclick="showPopup('FYP 1.100 Like + 25.000 View', 'Rp13.000')"><span>1.100 Like + 25.000 View</span>Rp13.000</div>
+
+  <div class="section-title">💖 Like Instagram</div>
+  <div class="card" onclick="showPopup('Like IG 1.000', 'Rp5.000')"><span>1.000 Like</span>Rp5.000</div>
+  <div class="card" onclick="showPopup('Like IG 2.200', 'Rp10.000')"><span>2.200 Like</span>Rp10.000</div>
+
+  <div class="section-title">👀 View Instagram</div>
+  <div class="card" onclick="showPopup('View IG 5.000', 'Rp10.000')"><span>5.000 View</span>Rp10.000</div>
+
+  <div class="section-title">💬 Like TikTok Permanen</div>
+  <div class="card" onclick="showPopup('Like TikTok 100', 'Rp1.000')"><span>100 Like</span>Rp1.000</div>
+  <div class="card" onclick="showPopup('Like TikTok 500', 'Rp5.000')"><span>500 Like</span>Rp5.000</div>
+
+  <div class="section-title">📈 View TikTok</div>
+  <div class="card" onclick="showPopup('View TikTok 80.000', 'Rp9.500')"><span>80.000 View</span>Rp9.500</div>
+
+  <div class="section-title">🎓 Open Murid Suntik by WanzBot</div>
+  <div class="card" onclick="showPopup('Open Murid Suntik', 'Rp15.000')">
+    <span>Web + Tutorial + Join Grup</span>Rp15.000
+  </div>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3 id="popup-title">Judul Paket</h3>
+    <p id="popup-desc">Harga</p>
+    <button class="go" onclick="goToPayment()">Lanjut ke Pembayaran</button>
+    <button class="cancel" onclick="closePopup()">Batal</button>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 WanzOffc - Layanan Suntik Sosmed Aman & Legal</p>
+</footer>
+
+<script>
+  function showPopup(title, price) {
+    document.getElementById('popup-title').innerText = title;
+    document.getElementById('popup-desc').innerText = `Harga: ${price}\n\nLanjut ke pembayaran?`;
+    document.getElementById('popup').style.display = 'flex';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  function goToPayment() {
+    window.location.href = "https://wanz-website.vercel.app/";
+  }
+</script>
+
+</body>
+</html>
